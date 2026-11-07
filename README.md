@@ -103,15 +103,48 @@ engineer:
 
 ## Featured Projects
 
-**Swipply — Distributed Job Matching Platform** · *NYU, 2024*<br>
+### 🤖 AI Meeting Room Scheduler: Agentic Booking Assistant
+*LLM agent · Tool calling · Model Context Protocol (MCP) · Slack integration · 2026*
+
+An **agentic AI assistant** that turns plain-English requests like *"Book a room for 8 people near my desk every Tuesday at 10"* into confirmed meeting-room reservations, with no forms and no calendar hunting.
+
+The agent reads intent, extracts the constraints that matter (time, recurrence, headcount and location), then **reasons over live data through MCP-connected tools**: it checks availability, ranks candidate rooms by **user context, location and capacity**, books the best match, and schedules a **Slack reminder 30 minutes before** the meeting.
+
+```mermaid
+flowchart LR
+    U["👤 Natural-language request"] --> A["🧠 LLM Agent<br/>intent + constraint extraction"]
+    A -->|tool calls via MCP| T1["📅 Availability"]
+    A -->|tool calls via MCP| T2["🏢 Rooms<br/>location · capacity"]
+    T1 --> R["⚖️ Rank & select<br/>best-fit room"]
+    T2 --> R
+    R --> B["✅ Booking<br/>one-time or recurring"]
+    B --> S["🔔 Slack reminder<br/>30 min before"]
+```
+
+**What makes it more than a chatbot**
+
+- **Agentic tool use:** the model doesn't just answer; it acts, choosing and chaining tool calls to finish a real task end to end.
+- **MCP integrations:** tools are exposed through the Model Context Protocol, so new data sources and actions plug in without rewriting the agent.
+- **Context-aware decisions:** room choice weighs who is asking, where they sit, how many people are attending and what's actually free.
+- **Recurring scheduling:** handles both one-time and repeating meetings from a single request.
+- **Closes the loop:** automated Slack reminders keep meetings from being missed.
+
+`LLM Agents` `Tool Calling` `MCP` `Natural Language Understanding` `Slack API` `Workflow Automation`
+
+---
+
+### Swipply: Distributed Job Matching Platform
+*NYU, 2024*<br>
 Swipe-style job matching with Python/Java recommendation services behind REST APIs. Asynchronous processing on SQS with retries and dead-letter queues, JWT auth, IAM and throttling, CI/CD on GitHub Actions, and tracing with CloudWatch and X-Ray.<br>
 `React` `AWS Lambda` `ECS Fargate` `SQS` `DynamoDB` `API Gateway`
 
-**Serverless Dining Concierge Chatbot** · *NYU, 2024*<br>
+### Serverless Dining Concierge Chatbot
+*NYU, 2024*<br>
 Event-driven chatbot that collects dining preferences in conversation, queues requests and emails personalized restaurant suggestions, with persistent user state and search.<br>
 `Amazon Lex` `Lambda` `SQS` `DynamoDB` `OpenSearch` `SES` `S3`
 
-**[Technical Support Centre Simulation](https://github.com/Dheerajpavuluri/Technical-Support-Centre)**<br>
+### [Technical Support Centre Simulation](https://github.com/Dheerajpavuluri/Technical-Support-Centre)
+*C++ simulation*<br>
 Monte Carlo, discrete-event simulation of a three-agent support queue, reporting waiting time, turnaround time and agent utilization.<br>
 `C++` `Simulation` `Queueing theory`
 
