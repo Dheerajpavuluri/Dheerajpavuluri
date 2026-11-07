@@ -120,9 +120,9 @@ Monte Carlo, discrete-event simulation of a three-agent support queue, reporting
 | Role | Company | Dates |
 |---|---|---|
 | Software Development Engineer, Fire TV Platform | Amazon | 2025 – Present |
-| Cloud Security Analyst (Co-op) | Technical Consulting and Research, Inc. | 2024 – 2025 |
-| Full Stack Developer (Part-time) | Winfra Technical Consultants | 2021 – 2022 |
-| Full Stack Developer (Part-time) | Marmag Infra | 2020 – 2021 |
+| Cloud Security Analyst | Technical Consulting and Research, Inc. | 2024 – 2025 |
+| Full Stack Developer | Winfra Technical Consultants | 2021 – 2022 |
+| Full Stack Developer | Marmag Infra | 2020 – 2021 |
 
 ## Education
 
