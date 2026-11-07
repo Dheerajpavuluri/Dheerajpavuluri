@@ -104,9 +104,9 @@ engineer:
 ## Featured Projects
 
 ### 🤖 AI Meeting Room Scheduler: Agentic Booking Assistant
-*LLM agent · Tool calling · Model Context Protocol (MCP) · Slack integration · 2026*
+*Side project at Amazon · LLM agent · Tool calling · Model Context Protocol (MCP) · 2026*
 
-An **agentic AI assistant** that turns plain-English requests like *"Book the same room for my team, Monday to Friday at 10 AM, for the next 3 months"* into confirmed meeting-room reservations, with no forms and no calendar hunting.
+Built as a **side project at Amazon** to take the friction out of booking meeting rooms for teams. It's an **agentic AI assistant** that turns plain-English requests like *"Book the same room for my team, Monday to Friday at 10 AM, for the next 3 months"* into confirmed meeting-room reservations, with no forms and no calendar hunting.
 
 **How it works**
 
