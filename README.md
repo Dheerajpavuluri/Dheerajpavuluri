@@ -106,30 +106,38 @@ engineer:
 ### 🤖 AI Meeting Room Scheduler: Agentic Booking Assistant
 *LLM agent · Tool calling · Model Context Protocol (MCP) · Slack integration · 2026*
 
-An **agentic AI assistant** that turns plain-English requests like *"Book a room for 8 people near my desk every Tuesday at 10"* into confirmed meeting-room reservations, with no forms and no calendar hunting.
+An **agentic AI assistant** that turns plain-English requests like *"Book the same room for my team, Monday to Friday at 10 AM, for the next 3 months"* into confirmed meeting-room reservations, with no forms and no calendar hunting.
 
-The agent reads intent, extracts the constraints that matter (time, recurrence, headcount and location), then **reasons over live data through MCP-connected tools**: it checks availability, ranks candidate rooms by **user context, location and capacity**, books the best match, and schedules a **Slack reminder 30 minutes before** the meeting.
+**How it works**
+
+1. **One-time setup:** the user registers their **team name and team chat group**, so every meeting the agent books is tied to the right team.
+2. **Knows who's asking:** the agent identifies the requester from their **alias** and looks up their **office building and floor**.
+3. **Understands the request:** it extracts time, duration, headcount and **recurrence**, from a single meeting to long-running series like *"same room, Mon–Fri, for 3 months"*.
+4. **Location-aware room search:** it searches the requester's **own floor first**, then falls back to other floors in the building, matching capacity and checking availability **across every date in the series**.
+5. **Books the series:** it reserves the **same room for the whole recurrence**, so the team isn't moved around day to day.
+6. **Keeps the team on time:** **30 minutes before** each meeting, it sends a notification to the team's chat group automatically.
 
 ```mermaid
-flowchart LR
-    U["👤 Natural-language request"] --> A["🧠 LLM Agent<br/>intent + constraint extraction"]
-    A -->|tool calls via MCP| T1["📅 Availability"]
-    A -->|tool calls via MCP| T2["🏢 Rooms<br/>location · capacity"]
-    T1 --> R["⚖️ Rank & select<br/>best-fit room"]
-    T2 --> R
-    R --> B["✅ Booking<br/>one-time or recurring"]
-    B --> S["🔔 Slack reminder<br/>30 min before"]
+flowchart TD
+    S0["⚙️ One-time setup<br/>team name + team chat group"] -.-> N
+    U["👤 Natural-language request<br/>'Same room, Mon–Fri, next 3 months'"] --> A["🧠 LLM Agent<br/>intent · time · headcount · recurrence"]
+    A -->|MCP tool| P["🪪 Identify requester by alias<br/>→ building & floor"]
+    P --> F1{"🏢 Rooms on the<br/>requester's floor<br/>available for all dates?"}
+    F1 -->|yes| B["✅ Book same room<br/>for the entire series"]
+    F1 -->|no| F2["🔎 Search other floors<br/>in the same building"]
+    F2 --> B
+    B --> N["🔔 Auto-notify team chat group<br/>30 min before every meeting"]
 ```
 
 **What makes it more than a chatbot**
 
-- **Agentic tool use:** the model doesn't just answer; it acts, choosing and chaining tool calls to finish a real task end to end.
+- **Agentic tool use:** the model doesn't just answer; it acts, chaining tool calls (identity lookup, room search, availability, booking, notifications) to finish a real task end to end.
 - **MCP integrations:** tools are exposed through the Model Context Protocol, so new data sources and actions plug in without rewriting the agent.
-- **Context-aware decisions:** room choice weighs who is asking, where they sit, how many people are attending and what's actually free.
-- **Recurring scheduling:** handles both one-time and repeating meetings from a single request.
-- **Closes the loop:** automated Slack reminders keep meetings from being missed.
+- **Personalized by default:** the requester's alias, building and floor drive every decision, so the nearest suitable room comes first.
+- **Long-range recurring bookings:** one request can lock the same room for weeks or months of weekday meetings.
+- **Team-aware notifications:** reminders go to the team's chat group automatically, 30 minutes before every meeting.
 
-`LLM Agents` `Tool Calling` `MCP` `Natural Language Understanding` `Slack API` `Workflow Automation`
+`LLM Agents` `Tool Calling` `MCP` `Natural Language Understanding` `Recurring Scheduling` `Chat Notifications` `Workflow Automation`
 
 ---
 
