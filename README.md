@@ -104,7 +104,7 @@ engineer:
 ## Featured Projects
 
 ### 🎧 [TicketPilot: AI Support Agent](https://github.com/Dheerajpavuluri/ticketpilot)
-*Personal project · LLM agents · FastAPI · React · 2026*<br>
+*Personal project · LLM agents · FastAPI · React · 2026* · **[Live demo](https://ticketpilot-03bi.onrender.com)**<br>
 An AI support agent that works a real ticket queue: it looks up customers and orders, searches the help center, opens refunds within policy and drafts replies that cite their sources. Deterministic guardrails route safety issues, legal threats, large refunds and low-confidence answers to a human review console with a full agent trace. Provider-agnostic (OpenAI / Anthropic tool calling), scored by an eval suite that gates CI on **zero unsafe auto-replies**, and scales out on taskforge workers.<br>
 `LLM Agents` `Tool Calling` `Evals` `Python` `FastAPI` `React` `TypeScript` `PostgreSQL` `Redis` `Docker`
 
