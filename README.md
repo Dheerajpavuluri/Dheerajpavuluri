@@ -141,6 +141,11 @@ flowchart TD
 
 ---
 
+### [taskforge: Distributed Task Queue](https://github.com/Dheerajpavuluri/taskforge)
+*Personal project · Python · Redis · FastAPI · 2026*<br>
+A distributed task queue on Redis, like a mini SQS or Celery. Workers claim tasks atomically through Lua scripts, leases with heartbeats recover work from crashed workers, and failed tasks retry with exponential backoff and jitter before landing in a dead-letter queue. It also supports priorities, delayed tasks, idempotency keys, graceful shutdown and Prometheus metrics. Benchmarked at ~3,400 tasks/s on 2 vCPUs, with **zero tasks lost** when a worker was killed mid-run.<br>
+`Python` `Redis` `Lua` `FastAPI` `asyncio` `Prometheus` `Docker` `GitHub Actions`
+
 ### Swipply: Distributed Job Matching Platform
 *NYU, 2024*<br>
 Swipe-style job matching with Python/Java recommendation services behind REST APIs. Asynchronous processing on SQS with retries and dead-letter queues, JWT auth, IAM and throttling, CI/CD on GitHub Actions, and tracing with CloudWatch and X-Ray.<br>
